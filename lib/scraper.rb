@@ -23,7 +23,7 @@ class Scraper #general scraper
         html.css("altRentDisplay").each do |cost|
             price = cost.strip
             
-            Nyc.new(addr_text, cost)
+            Nyc.new(address_text)
             #create apartment using Nyc class. instantiate apt passing in description held in local variable. everytime we iterate over apt description we create a new apt. slowely building apt instance for each apt. 
         end
     end

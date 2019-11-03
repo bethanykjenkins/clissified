@@ -1,8 +1,8 @@
-class Nyc
+ class Nyc
 
     @@all = []
 
-    def initialize(address)
+  #  def initialize(address)
         @address = address
         #gives ability to be initialized using address
         @@all << self
