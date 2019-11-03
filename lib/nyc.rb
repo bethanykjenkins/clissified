@@ -2,9 +2,9 @@ class Nyc
 
     @@all = []
 
-    def initialize(description)
-        @description = description
-        #gives ability to be initialized using description
+    def initialize(address)
+        @address = address
+        #gives ability to be initialized using address
         @@all << self
         #save them as they are created so append at end at the class variable
     end
