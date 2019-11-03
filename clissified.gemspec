@@ -5,13 +5,12 @@ require "clissified/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "clissified"
-  spec.version       = Clissified::VERSION
+  spec.version       = Clissified::VERSION 0.1.0
   spec.authors       = ["'Bethany Jenkins'"]
   spec.email         = ["'bethanykjenkins@rocketmail.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This will help find an apartment in NYC}
+ 
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
