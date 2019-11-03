@@ -5,6 +5,5 @@ gemspec
 
 #where I list gems I used required for project
 
-bundle init 
 gem 'nokogiri'
 gem 'pry'
