@@ -14,7 +14,7 @@ class Scraper #general scraper
         #reads content at url and saves to variable as a file object need to use nokogiri to parse it
         #parse through html file and turn it into objects similar to nested hash with nodes to make it easier to find elements to get needed data
         
-        html.css("span.ft0c2").each do |desc|
+        html.css("placardTitle js-placardTitle  ").each do |desc|
             description_text = desc.text.strip
             #local variable
             Nyc.new(description_text)
@@ -24,7 +24,7 @@ class Scraper #general scraper
 
 end
 
-apt_scraper = Scraper.new('https://www.apartments.com/new-york-ny/under-1600/?bb=mi7j_458wHzszmkvH')
+apt_scraper = Scraper.new('https://www.apartments.com/apartments/new-york-ny/under-1700/?bb=mi7j_458wHzszmkvH')
 #creating scraper instance being saved to apt_scraper variable which stores instance of a scraper
 #return instance of scraper that runs url saved on  this instance
 
