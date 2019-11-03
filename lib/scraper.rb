@@ -9,15 +9,21 @@ class Scraper #general scraper
 
     def scrape_apts
       #instance method make use of url saved in scraper object
+      
       self.url #returns data from initialize method
+      
         html = Nokogiri::HTML(open(url))
         #reads content at url and saves to variable as a file object need to use nokogiri to parse it
         #parse through html file and turn it into objects similar to nested hash with nodes to make it easier to find elements to get needed data
         
-        html.css("placardTitle js-placardTitle  ").each do |desc|
-            description_text = desc.text.strip
+        html.css("placardTitle js-placardTitle  ").each do |addr|
+            address_text = addr.text.strip
             #local variable
-            Nyc.new(description_text)
+          
+        html.css("altRentDisplay").each do |cost|
+            price = cost.strip
+            
+            Nyc.new(addr_text, cost)
             #create apartment using Nyc class. instantiate apt passing in description held in local variable. everytime we iterate over apt description we create a new apt. slowely building apt instance for each apt. 
         end
     end
