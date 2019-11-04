@@ -1,0 +1,37 @@
+class Clissified::CLI
+
+  def call
+    list_apts
+    menu
+    goodbye
+  end
+
+  def list_apts
+    puts "Let's find your dream apartment"
+    @deals = DailyDeal::Deal.today
+    @deals.each.with_index(1) do |deal, i|
+      puts "#{i}. #{deal.name} - #{deal.price} - #{deal.availability}"
+    end
+  end
+
+  def menu
+    input = nil
+    while input != "exit"
+      puts "Enter the number of the apartment you'd like to learn more about, type list to see the apartments again or type exit:"
+      input = gets.strip.downcase
+
+      if input.to_i > 0
+        the_deal = @deals[input.to_i-1]
+        puts "#{the_deal.name} - #{the_deal.price} - #{the_deal.availability}"
+      elsif input == "list"
+        list_deals
+      else
+        puts "Don't see anything you like? Type list or exit."
+      end
+    end
+  end
+
+  def goodbye
+    puts "New apartments are listed daily. Check back for more!"
+  end
+end
