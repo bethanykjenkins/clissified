@@ -25,7 +25,6 @@ class Apartments::Nyc
     apt = self.new
     apt.address = html.search("placardTitle js-placardTitle  ").text.strip
     apt.cost = html.search("...").text.strip
-    #deal.url = html.search("...").first.attr("...").strip
    
 
     apt
