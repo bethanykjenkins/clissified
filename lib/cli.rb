@@ -6,8 +6,8 @@ class Clissified::CLI
     goodbye
   end
 
-  def list_apts
-    puts "Let's find your dream apartment"
+  def apt_list
+    puts "Let's find your dream apartment!"
     @apts = Apartment::Nyc.new_york
     @apts.each.with_index(1) do |apt, i|
       puts "#{i}. #{apt.address} - #{apt.cost}"
@@ -17,14 +17,14 @@ class Clissified::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Enter the number of the apartment you'd like to learn more about, type list to see the apartments again or type exit:"
+      puts "Enter the number of the apartment you'd like to learn more about, type list to see all of the apartments again or type exit:"
       input = gets.strip.downcase
 
       if input.to_i > 0
-        the_apt = @apts[input.to_i-1]
-        puts "#{the_apt.name} - #{the_apt.price}"
+        unit = @apts[input.to_i-1]
+        puts "#{unit.name} | #{unit.price}"
       elsif input == "list"
-        list_apts
+        apt_list
       else
         puts "Don't see anything you like? Type list to go back to the list or exit."
       end
