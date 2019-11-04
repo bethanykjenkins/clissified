@@ -19,8 +19,8 @@ class Apartments::Nyc
 
     apt = self.new
     apt.address = doc.search("placardTitle js-placardTitle  ").text.strip
-    apt.cost = doc.search("#todays-deal span.price").text.strip
-    #deal.url = doc.search("a.wantone").first.attr("href").strip
+    apt.cost = doc.search("...").text.strip
+    #deal.url = doc.search("...").first.attr("...").strip
    
 
     deal
