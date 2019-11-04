@@ -1,5 +1,5 @@
 class Scraper #general scraper
-    attr_reader :url #reader for url instance variable
+    attr_reader :address, :cost, :url #reader for instance variable
 
     @@all = [] #class variable to trace and access scraping objects
 
@@ -20,8 +20,6 @@ class Scraper #general scraper
             address_text = addr.text.strip
             #local variable
           
-        html.css("altRentDisplay").each do |cost|
-            price = cost.strip
             
             Nyc.new(address_text)
             #create apartment using Nyc class. instantiate apt passing in description held in local variable. everytime we iterate over apt description we create a new apt. slowely building apt instance for each apt. 
