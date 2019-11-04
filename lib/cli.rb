@@ -1,7 +1,7 @@
 class Clissified::CLI
 
   def call
-    list_apts
+    apt_list
     menu
     goodbye
   end
