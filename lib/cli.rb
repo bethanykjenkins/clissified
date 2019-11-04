@@ -10,7 +10,7 @@ class Clissified::CLI
     puts "Let's find your dream apartment!"
     @apts = Apartment::Nyc.new_york
     @apts.each.with_index(1) do |apt, i|
-      puts "#{i}. #{apt.address} - #{apt.cost}"
+      puts "#{i}. #{apt.address} | #{apt.cost}"
     end
   end
 
