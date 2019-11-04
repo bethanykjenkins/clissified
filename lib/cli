@@ -8,9 +8,9 @@ class Clissified::CLI
 
   def list_apts
     puts "Let's find your dream apartment"
-    @deals = DailyDeal::Deal.today
-    @deals.each.with_index(1) do |deal, i|
-      puts "#{i}. #{deal.name} - #{deal.price} - #{deal.availability}"
+    @apts = Apartment::Nyc.new_york
+    @apts.each.with_index(1) do |deal, i|
+      puts "#{i}. #{apt.address} - #{apt.cost}"
     end
   end
 
@@ -22,11 +22,11 @@ class Clissified::CLI
 
       if input.to_i > 0
         the_deal = @deals[input.to_i-1]
-        puts "#{the_deal.name} - #{the_deal.price} - #{the_deal.availability}"
+        puts "#{the_apt.name} - #{the_apt.price}"
       elsif input == "list"
-        list_deals
+        list_apts
       else
-        puts "Don't see anything you like? Type list or exit."
+        puts "Don't see anything you like? Type list to go back to the list or exit."
       end
     end
   end
