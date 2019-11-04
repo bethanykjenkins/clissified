@@ -28,7 +28,7 @@ class Apartments::Nyc
     #deal.url = html.search("...").first.attr("...").strip
    
 
-    deal
+    apt
   end
 
 end
