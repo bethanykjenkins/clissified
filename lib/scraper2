@@ -1,26 +1,26 @@
-class DailyDeal::Deal
-  attr_accessor :name, :price, :url
+class Apartments::Nyc
+  attr_accessor :name, :cost, :address, :url
 
   def self.today
-    # Scrape woot and meh and then return deals based on that data
-    self.scrape_deals
+    #scrape apartment data from site and return results
+    self.scrape_apts
   end
 
-  def self.scrape_deals
-    deals = []
+  def self.scrape_apts
+    apts = []
 
-    deals << self.scrape_woot
+    apts << self.scrape_apartments
 
-    deals
+    apts
   end
 
-  def self.scrape_woot
-    doc = Nokogiri::HTML(open("https://woot.com"))
+  def self.scrape_apartments
+    doc = Nokogiri::HTML(open("https://www.apartments.com/apartments/new-york-ny/under-1700/?bb=mi7j_458wHzszmkvH"))
 
-    deal = self.new
-    deal.name = doc.search("h2.main-title").text.strip
-    deal.price = doc.search("#todays-deal span.price").text.strip
-    deal.url = doc.search("a.wantone").first.attr("href").strip
+    apt = self.new
+    apt.address = doc.search("placardTitle js-placardTitle  ").text.strip
+    apt.cost = doc.search("#todays-deal span.price").text.strip
+    #deal.url = doc.search("a.wantone").first.attr("href").strip
    
 
     deal
