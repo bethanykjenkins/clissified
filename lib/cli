@@ -9,7 +9,7 @@ class Clissified::CLI
   def list_apts
     puts "Let's find your dream apartment"
     @apts = Apartment::Nyc.new_york
-    @apts.each.with_index(1) do |deal, i|
+    @apts.each.with_index(1) do |apt, i|
       puts "#{i}. #{apt.address} - #{apt.cost}"
     end
   end
@@ -21,7 +21,7 @@ class Clissified::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        the_deal = @deals[input.to_i-1]
+        the_apt = @apts[input.to_i-1]
         puts "#{the_apt.name} - #{the_apt.price}"
       elsif input == "list"
         list_apts
