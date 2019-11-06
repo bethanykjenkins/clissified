@@ -1,7 +1,5 @@
 class Apartments::Nyc
-  attr_accessor :name, :cost, :address
-  
-  end
+  attr_accessor :name, :cost, :address #create reader & writer methods  for these attributes
 
   def self.nyc #return data from initialize method
     self.scrape_apts
@@ -15,15 +13,39 @@ class Apartments::Nyc
     apts << self.scrape_apartments
     #creating scraper instance being saved to apt_scraper variable which stores instance of a scraper
     #return instance of scraper that runs url saved on  this instance
-
+    apts << self.scrape_zillow
+    apts << self.scrape_trulia
+    
     apts
   end
 
   def self.scrape_apartments
-    html = Nokogiri::HTML(open("https://www.apartments.com/apartments/new-york-ny/under-1700/?bb=mi7j_458wHzszmkvH"))
+    html = Nokogiri::HTML(open("...")) 
+      #use the Rubygem Nokogiri to parse the data from the site.
+    apt = self.new
+    apt.address = html.search("...").text.strip
+    apt.cost = html.search("...").text.strip
+   
+
+    apt
+  end
+  
+   def self.scrape_zillow
+    html = Nokogiri::HTML(open("..."))
 
     apt = self.new
-    apt.address = html.search("placardTitle js-placardTitle  ").text.strip
+    apt.address = html.search("...").text.strip
+    apt.cost = html.search("...").text.strip
+   
+
+    apt
+  end
+  
+   def self.scrape_trulia
+    html = Nokogiri::HTML(open("..."))
+
+    apt = self.new
+    apt.address = html.search("...").text.strip
     apt.cost = html.search("...").text.strip
    
 
