@@ -6,4 +6,7 @@ require 'open-uri' #store the HTML content in a string variable (an example of d
 
 #module needed for scraping
 
+require_relative '..lib/scraper.rb'
+require_relative 'lib/cli.rb'
+
 Clissified::CLI.new.call 
