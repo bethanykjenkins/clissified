@@ -2,10 +2,8 @@
 
 require 'bundler/setup' #require the bundle
 Bundler.require 
-require 'open-uri'
-require_relative '..lib/nyc'
+require 'open-uri' #store the HTML content in a string variable (an example of doing this is provided later)
 
 #module needed for scraping
-require_relative '../lib/scraper'
 
-#
+Clissified::CLI.new.call 
