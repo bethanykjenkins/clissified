@@ -10,18 +10,18 @@ class Clissified::CLI
     puts "Let's find your dream apartment!"
     @apts = Apartment::Nyc
     @apts.each.with_index(1) do |apt, i|
-      puts "#{i}. #{apt.name}"
+      puts "#{i}. #{apt.address}"
     end
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts "To see the cost of an apartment enter the corresponding number, to see the complete list of apartments type list, or type exit."
+      puts "To see more details about an apartment enter the corresponding number, to see the complete list of apartments type list, or type exit."
 
       if input.to_i > 0
         unit = @apts[input.to_i-1]
-        puts "#{unit.name} | #{unit.address} | #{unit.cost}"
+        puts "This apartment is located at #{unit.address} | It has #{unit.rooms} rooms| This listing costs #{unit.cost}"
       elsif input == "list"
         apt_list
       else
