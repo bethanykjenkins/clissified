@@ -1,5 +1,5 @@
 class Apartments::Nyc
-  attr_accessor :name, :cost, :address #create reader & writer methods  for these attributes
+  attr_accessor :name, :address, :rooms, :cost #create reader & writer methods  for these attributes
 
   def self.nyc #return data from initialize method
     self.scrape_apts
@@ -23,9 +23,15 @@ class Apartments::Nyc
     html = Nokogiri::HTML(open("...")) 
       #use the Rubygem Nokogiri to parse the data from the site.
     apt = self.new
-    apt.address = html.search("...").text.strip
-    apt.cost = html.search("...").text.strip
-   
+    apt.name = html.search("placardTitle js-placardTitle  ").text.strip
+    apt.address = html.search("location").text.strip
+    apt.rooms = html.search("...").text.strip
+    apt.cost = html.search("altRentDisplay").text.strip
+    
+    <a class="placardTitle js-placardTitle  " href="https://www.apartments.com/4530-broadway-new-york-ny-unit-4a/vns0vhd/" title="4530 Broadway Unit 4A, New York, NY">
+4530 Broadway Unit 4A</a>
+<div class="location" title="New York, NY 10040">New York, NY 10040</div>
+<span class="altRentDisplay">$1,525</span>
 
     apt
   end
@@ -34,7 +40,9 @@ class Apartments::Nyc
     html = Nokogiri::HTML(open("..."))
 
     apt = self.new
+    apt.name = html.search("...").text.strip
     apt.address = html.search("...").text.strip
+    apt.rooms = html.search("...").text.strip
     apt.cost = html.search("...").text.strip
    
 
@@ -45,10 +53,11 @@ class Apartments::Nyc
     html = Nokogiri::HTML(open("..."))
 
     apt = self.new
+    apt.name = html.search("...").text.strip
     apt.address = html.search("...").text.strip
+    apt.rooms = html.search("...").text.strip
     apt.cost = html.search("...").text.strip
    
-
     apt
   end
 
