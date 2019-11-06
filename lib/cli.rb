@@ -21,7 +21,7 @@ class Clissified::CLI
 
       if input.to_i > 0
         unit = @apts[input.to_i-1]
-        puts "#{unit.address} | #{unit.price}"
+        puts "#{unit.address} | #{unit.cost}"
       elsif input == "list"
         apt_list
       else
