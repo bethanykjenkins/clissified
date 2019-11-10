@@ -1,5 +1,5 @@
 class Apartments::Nyc
-  attr_accessor :address, :rooms, :cost #create reader & writer methods  for these attributes
+  attr_accessor :address, :rooms, :rent #create reader & writer methods  for these attributes
 
   def self.nyc #return data from initialize method
     self.scrape_apts
@@ -25,7 +25,7 @@ class Apartments::Nyc
     apt = self.new
     apt.address = html.search("placardTitle js-placardTitle  ").text.strip
     apt.rooms = html.search("unitLabel ").text.strip
-    apt.cost = html.search("altRentDisplay").text.strip
+    apt.rent = html.search("altRentDisplay").text.strip
 
     apt
   end
@@ -36,7 +36,7 @@ class Apartments::Nyc
     apt = self.new
     apt.address = html.search("list-card-addr").text.strip
     apt.rooms = html.search("list-card-addr").text.strip
-    apt.cost = html.search("list-card-details").text.strip
+    apt.rent = html.search("list-card-details").text.strip
 
     apt
   end
@@ -47,7 +47,7 @@ class Apartments::Nyc
     apt = self.new
     apt.address = html.search("Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 lcNNgu").text.strip
     apt.rooms = html.search("Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 lcNNgu").text.strip
-    apt.cost = html.search("MediaBlock__MediaContent-ldzu2c-1 eMnXuJ").text.strip
+    apt.rent = html.search("MediaBlock__MediaContent-ldzu2c-1 eMnXuJ").text.strip
    
     apt
   end
