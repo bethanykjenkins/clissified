@@ -2,6 +2,7 @@
 #where code is run
 
 #requires code from environment file
-require_relative '../config/environment'
+require "bundler/setup"
+require "clissified"
 
 Clissified::CLI.new.call 
