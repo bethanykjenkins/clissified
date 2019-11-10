@@ -21,7 +21,7 @@ class Clissified::CLI
 
       if input.to_i > 0
         unit = @apts[input.to_i-1]
-        puts "This apartment is located at #{unit.address} | It has #{unit.rooms} rooms| This listing costs #{unit.cost}"
+        puts "This apartment is located at #{unit.address} | It has #{unit.rooms} rooms| The monthly rent for this unit is #{unit.rent}"
       elsif input == "list"
         apt_list
       else
