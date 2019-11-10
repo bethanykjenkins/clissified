@@ -1,8 +1,11 @@
 class Apartments::Scraper
   attr_accessor :address, :rooms, :rent #create reader & writer methods for these attributes
 
-  def self.nyc #return data from initialize method
+  def self.nyc 
+    #return data from initialize method
+    
     self.scrape_apts
+    
     #scrape apartment data from site and return results
     
   end
