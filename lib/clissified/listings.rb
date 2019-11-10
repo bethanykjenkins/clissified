@@ -1,4 +1,4 @@
-class Clissified::Apartments
+class Clissified::Listings
   attr_accessor :address, :rooms, :rent #create reader & writer methods for these attributes
 
   def self.nyc 
