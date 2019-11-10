@@ -1,4 +1,4 @@
-class Apartments::Nyc
+class Apartments::Scraper
   attr_accessor :address, :rooms, :rent #create reader & writer methods  for these attributes
 
   def self.nyc #return data from initialize method
