@@ -1,5 +1,5 @@
 class Apartments::Scraper
-  attr_accessor :address, :rooms, :rent #create reader & writer methods  for these attributes
+  attr_accessor :address, :rooms, :rent #create reader & writer methods for these attributes
 
   def self.nyc #return data from initialize method
     self.scrape_apts
