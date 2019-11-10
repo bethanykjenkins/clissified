@@ -1,4 +1,4 @@
-require "clissified/version"
+require_relative "./clissified/version"
 
 module Clissified
   class Error < StandardError; end
