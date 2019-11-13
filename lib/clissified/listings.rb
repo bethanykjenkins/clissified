@@ -27,8 +27,8 @@ class Clissified::Listings
 
     apt = self.new
     apt.address = html.search("h3.list-card-addr").text.strip
-    apt.rooms = html.search("u1.list-card-details").text.strip
-    apt.rent = html.search(div.list-card-price").text.strip
+    apt.rooms = html.search("ul.list-card-details").text.strip
+    apt.rent = html.search("div.list-card-price").text.strip
 
     apt
   end
