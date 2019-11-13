@@ -18,7 +18,9 @@ class Clissified::CLI
     input = nil
     while input != "exit"
       puts "To see more details about an apartment enter the corresponding number, to see the complete list of apartments type list, or type exit."
-
+      input = gets.strip.downcase
+      
+      
       if input.to_i > 0
         unit = @apts[input.to_i-1]
         puts "This apartment is located at #{unit.address} | It has #{unit.rooms} rooms| The monthly rent for this unit is #{unit.rent}"
