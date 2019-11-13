@@ -2,7 +2,7 @@ class Clissified::Listings
   attr_accessor :address, :rooms, :rent #create reader & writer methods for these attributes
 
   def self.nyc 
-    #return data from initialize method
+    #class method
     
     self.scrape_apts
     
