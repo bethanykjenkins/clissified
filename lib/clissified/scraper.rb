@@ -1,5 +1,6 @@
 class Scraper #general scraper
-    attr_reader :address, :cost, :url #reader for instance variable
+    attr_reader :address, :cost, :details, :url 
+    #reader for instance variable
 
     @@all = [] #class variable to trace and access scraping objects
 
