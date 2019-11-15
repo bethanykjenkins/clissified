@@ -18,15 +18,15 @@ class Scraper #general scraper
         #parse through html file and turn it into objects similar to nested hash with nodes to make it easier to find elements to get needed data
         
         #local variables
-        html.css("placardTitle js-placardTitle  ").each do |addr|
+        html.css("h3.list-card-addr").each do |addr|
             address_text = addr.text.strip
         end
             
-       html.css("placardTitle js-placardTitle  ").each do |rent|
+       html.css("div.list-card-price").each do |rent|
             rent_text = rent.text.strip
        end
                
-       html.css("placardTitle js-placardTitle  ").each do |deet|
+       html.css("ul.list-card-details").each do |deet|
             details_text = deet.text.strip
             # Nyc.new(address_text)
             #create apartment using Nyc class. instantiate apt passing in description held in local variable. everytime we iterate over apt description we create a new apt. slowely building apt instance for each apt. 
@@ -35,10 +35,10 @@ class Scraper #general scraper
 
 end
 
-apt_scraper = Scraper.new('https://www.apartments.com/apartments/new-york-ny/under-1700/?bb=mi7j_458wHzszmkvH')
+apt_scraper = Scraper.new('https://www.zillow.com/homes/Manhattan-New-York-NY_rb/')
 #creating scraper instance being saved to apt_scraper variable which stores instance of a scraper
 #return instance of scraper that runs url saved on  this instance
 
 apt_scraper.scrape_zillow
 #take url and do specific scraping and return data
-binding.pry
+
