@@ -5,4 +5,4 @@
 require "bundler/setup"
 require "clissified"
 
-Clissified::CLI.new.call 
+Clissified::CLI.new.start 
