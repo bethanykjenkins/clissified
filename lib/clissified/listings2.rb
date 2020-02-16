@@ -16,7 +16,6 @@ class Clissified::Listings
 
     #creating scraper instance being saved to apt_scraper variable which stores instance of a scraper
     #return instance of scraper that runs url saved on  this instance
-    apts << self.scrape_craigslist
     apts << self.scrape_zillow
     apts << self.scrape_trulia
     
@@ -31,17 +30,6 @@ class Clissified::Listings
     apt.address = html.search("h3.list-card-addr").text.strip
     apt.rooms = html.search("ul.list-card-details").text.strip
     apt.rent = html.search("div.list-card-price").text.strip
-
-    apt
-  end
-  
-     def self.scrape_craigslist
-    html = Nokogiri::HTML(open(""))
-
-    apt = self.new
-    apt.address = html.search("h3.list-card-addr").text.strip
-    apt.rooms = 
-    apt.rent = 
 
     apt
   end
