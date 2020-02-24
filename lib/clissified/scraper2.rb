@@ -6,7 +6,7 @@ class Scraper
 
   def list_apt
     self.scrape_apts.each do |post|
-      apt = Listings.new
+      apt = Clissified::Listings.new
       apt.address = post.css("address.list-card-addr").text
       apt.rent = post.css("div.list-card-price").text
       apt.rooms = post.css("li").text
