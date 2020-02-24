@@ -8,7 +8,7 @@ class Clissified::CLI
 
   def apt_list
     puts "Let's find your dream apartment!"
-    @apts = Clissified::Listings.nyc
+    @apts = Clissified::Listings.all
     @apts.each.with_index(1) do |apt, i|
       puts "#{i}. #{apt.address}"
     end
