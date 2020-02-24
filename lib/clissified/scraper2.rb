@@ -1,19 +1,15 @@
 class Scraper
 
-  def get_page
-    doc = Nokogiri::HTML(open("http://learn-co-curriculum.github.io/site-for-scraping/courses"))
+  def scrape_apts
+    doc = Nokogiri::HTML(open("https://www.zillow.com/homes/Manhattan-New-York-NY_rb/"))
   end
 
-  def get_courses
-    self.get_page.css(".post")
-  end
-
-  def make_courses
-    self.get_courses.each do |post|
-      course = Course.new
-      course.title = post.css("h2").text
-      course.schedule = post.css(".date").text
-      course.description = post.css("p").text
+  def list_apt
+    self.scrape_apts.each do |post|
+      apt = Listings.new
+      apt.address = post.css("address.list-card-addr").text
+      apt.rent = post.css("div.list-card-price").text
+      apt.rooms = post.css("li").text
     end
   end
 
