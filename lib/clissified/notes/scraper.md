@@ -1,4 +1,4 @@
-class Scraper #general scraper
+class Clissified::Scraper #general scraper
     attr_reader :address, :rent, :details, :url 
     #reader for instance variable
 
