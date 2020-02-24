@@ -8,7 +8,7 @@ class Clissified::Listings
     self.nyc.all << self
   end
 
-  def self.nyc
+  def self.all
     @@all
   end
 
