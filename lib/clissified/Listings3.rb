@@ -1,6 +1,6 @@
 
 class Clissified::Listings
-  attr_accessor :title, :schedule, :description
+  attr_accessor :address, :rent, :rooms
 
   @@all = []
 
