@@ -5,7 +5,7 @@ class Clissified::Listings
   @@all = []
 
   def initialize
-    self.nyc.all << self
+    self.all << self
   end
 
   def self.all
