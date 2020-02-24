@@ -5,14 +5,11 @@ class Clissified::Listings
   @@all = []
 
   def initialize
-    self.class.all << self
+    self.nyc.all << self
   end
 
   def self.all
     @@all
   end
 
-  def self.reset_all
-    @@all.clear
-  end
 end
