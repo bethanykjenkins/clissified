@@ -38,7 +38,7 @@ class Clissified::Listings
     html = Nokogiri::HTML(open("https://www.zillow.com/homes/Manhattan-New-York-NY_rb/"))
 
     apt = self.new
-    apt.address = html.css("address.list-card-addr").text.strip
+    apt.address = html.css("grid-search-results").text.strip
     apt.rooms = html.css("ul.list-card-details").text.strip
     apt.rent = html.css("div.list-card-price").text.strip
 
