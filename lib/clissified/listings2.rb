@@ -16,12 +16,10 @@ class Clissified::Listings
     pets
   end
 
-   def self.scrape_puppies
+    def self.scrape_puppies
     html = Nokogiri::HTML(open("https://www.adoptapet.com/adoption_rescue/89777-new-beginning-animal-rescue-bronx-new-york"))
-
     pet = self.new
-    pet.name = html.css("h4.periodic-heading__h4 periodic-heading__h4--bold periodic-base").text.strip
-    pet.information = html.css("p.periodic-paragraph periodic-paragraph--size-s periodic-paragraph--weight-light periodic-base").text.strip
+    pet.name = html.css("div.content").text.strip
 
     pet
   end
