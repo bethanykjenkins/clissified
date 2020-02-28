@@ -1,31 +1,30 @@
 class Clissified::CLI
 
   def start
-    apt_list
+    pet_list
     menu
     goodbye
   end
 
-  def apt_list
-    puts "Let's find your dream apartment!"
-    @apts = Clissified::Listings.all
-    @apts.each.with_index(1) do |apt, i|
-      puts "#{i}. #{apt.address}"
+  def pet_list
+    puts "Let's find your new best friend!"
+    @pets = Clissified::Listings.nyc
+    @pets.each.with_index(1) do |pet, i|
+      puts "#{i}. #{pet.name}"
     end
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts "To see more details about an apartment enter the corresponding number, to see the complete list of apartments type list, or type exit."
+      puts "To see more details about a potential pet enter the corresponding number, to see the complete list of pets type list, or type exit."
       input = gets.strip.downcase
       
-      
       if input.to_i > 0
-        unit = @apts[input.to_i-1]
-        puts "This apartment is located at #{unit.address} | It has #{unit.rooms} rooms| The monthly rent for this unit is #{unit.rent}"
+        buddy = @pets[input.to_i-1]
+        puts "This is #{buddy.name} | It has #{buddy.rooms} rooms| The monthly rent for this unit is #{buddy.rent}"
       elsif input == "list"
-        apt_list
+        pet_list
       else
         puts "Don't see anything you like? Type list to go back to the list or exit to quit your search for today."
       end
@@ -33,6 +32,6 @@ class Clissified::CLI
   end
 
   def goodbye
-    puts "New apartments are listed daily. Check back soon for more!"
+    puts "New pets looking for their forever family are listed daily. Check back soon for more!"
   end
 end
