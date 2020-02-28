@@ -25,9 +25,9 @@ class Clissified::Listings
     html = Nokogiri::HTML(open("https://www.adoptapet.com/adoption_rescue/89777-new-beginning-animal-rescue-bronx-new-york"))
 
     pet = self.new
-    pet.address = html.css("grid-search-results").text.strip
-    pet.rooms = html.css("ul.list-card-details").text.strip
-    pet.rent = html.css("div.list-card-price").text.strip
+    pet.name = html.css("grid-search-results").text.strip
+    pet.breed = html.css("ul.list-card-details").text.strip
+    pet.information = html.css("div.list-card-price").text.strip
 
     pet
   end
