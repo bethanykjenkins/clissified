@@ -1,21 +1,16 @@
-
 class Clissified::Listings
-  attr_accessor :name, :breed, :information #create reader & writer methods for these attributes
+  attr_accessor :name, :information #create reader & writer methods for these attributes
 
   def self.nyc 
     #class method
-    
     self.scrape_pets
-    
     #scrape apartment data from site and return results
-    
   end
 
   def self.scrape_pets #instance method make use of url saved in object
     pets = [] #instance variable to trace and access scraping objects
-
-    #creating scraper instance being saved to apt_scraper variable which stores instance of a scraper
-    #return instance of scraper that runs url saved on  this instance
+    #creating scraper instance being saved to pet_scraper variable which stores instance of a scraper
+    #return instance of scraper that runs url saved on this instance
     pets << self.scrape_puppies
     
     pets
@@ -25,9 +20,8 @@ class Clissified::Listings
     html = Nokogiri::HTML(open("https://www.adoptapet.com/adoption_rescue/89777-new-beginning-animal-rescue-bronx-new-york"))
 
     pet = self.new
-    pet.name = html.css("grid-search-results").text.strip
-    pet.breed = html.css("ul.list-card-details").text.strip
-    pet.information = html.css("div.list-card-price").text.strip
+    pet.name = html.css("h4.periodic-heading__h4 periodic-heading__h4--bold periodic-base").text.strip
+    pet.information = html.css("p.periodic-paragraph periodic-paragraph--size-s periodic-paragraph--weight-light periodic-base").text.strip
 
     pet
   end
