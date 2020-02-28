@@ -28,10 +28,15 @@ class Scraper
     #  end
 
    def self.scrape_puppies
+    
     html = Nokogiri::HTML(open(url))
     html.css("div.content").each do |pet|
     pet_text = pet.text.strip
       Dog.new(pet_text)
+    
+    Dog.name = html.search("h4.periodic-heading").text.strip
+    Dog.details = html.search("p.periodic-paragraph").text.strip
+    
   end
 
 end
