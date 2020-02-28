@@ -1,11 +1,12 @@
 
 class Clissified::Listings
-  attr_accessor :address, :rent, :rooms
+  attr_accessor :name, :breed, :details
 
   @@all = []
 
-  def initialize
-    self.all << self
+  def initialize(descrpition)
+    @description = description
+    @@all << self
   end
 
   def self.all
