@@ -8,7 +8,8 @@ class Clissified::CLI
 
   def pet_list
     puts "Let's find your new best friend!"
-    @pets = Clissified::Listings.nyc
+    @pets = Clissified::PetScraper.new.make_pets
+
     @pets.each.with_index(1) do |pet, i|
       puts "#{i}. #{pet.name}"
     end
@@ -35,3 +36,4 @@ class Clissified::CLI
     puts "New pets looking for their forever family are listed daily. Check back soon for more!"
   end
 end
+
