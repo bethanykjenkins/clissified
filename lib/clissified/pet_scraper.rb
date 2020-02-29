@@ -13,7 +13,7 @@ class Clissified::PetScraper
       pet.gender_and_age = dog_html.css('p').children[0].text.strip
       pet.breed = dog_html.css('span')[0].children[1].text.strip + dog_html.css('span')[0].children[2].text.strip
 
-    
+      pet.save
       pets << pet
     end
     
