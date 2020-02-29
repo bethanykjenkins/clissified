@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 #where code is run
 
-#requires code from environment file
-require "bundler/setup"
-require "clissified"
+require_relative "../lib/clissified"
 
-Clissified::CLI.new.start 
+Clissified::CLI.new.start
+
