@@ -7,6 +7,10 @@ class Clissified::Pet
     @@all << pets
   end
   
+  def save
+    @@all << self
+  end
+  
    def self.all
     @@all
   end
