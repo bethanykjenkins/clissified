@@ -1,17 +1,18 @@
 class Clissified::Pet
   attr_accessor :name, :gender_and_age, :breed
-
-  @@all = []
+   
+  def initialize(name, gender_and_age, breed)
+    @name = name
+    @gender_and_age = gender_and_age
+    @breed = breed
+    save
+  end 
   
-  def all
-    @@all << pets
+  def self.all 
+    @@all 
   end
   
   def save
     @@all << self
   end
-  
-   def self.all
-    @@all
-  end
-end
+end 
