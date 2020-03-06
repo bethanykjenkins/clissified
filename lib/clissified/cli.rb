@@ -23,11 +23,11 @@ class Clissified::CLI
       
       if input.to_i > 0
         buddy = @pets[input.to_i-1]
-        puts "This is #{buddy.name} | It has #{buddy.rooms} rooms| The monthly rent for this unit is #{buddy.rent}"
+        puts "This is #{buddy.name}. | #{buddy.name} is a #{buddy.breed}. | #{buddy.name} is a #{buddy.gender_and_age}."
       elsif input == "list"
         pet_list
       else
-        puts "Don't see anything you like? Type list to go back to the list or exit to quit your search for today."
+        puts "Don't see anyone you like? Type list to go back to the list or exit to quit your search for today."
       end
     end
   end
